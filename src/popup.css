@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+  --bg: #050505;
+  --text: #ffffff;
+  --accent: #f6b012;
+  --info: #3c9fdd;
+  --surface: #0a0a0a;
+  --border: #1a1a1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Varela Round', sans-serif;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 300px;
+  text-transform: lowercase;
+}
+
+h2 {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+
+p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 8px 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+/* toggle */
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.label-off, .label-on {
+  font-size: 11px;
+  color: var(--info);
+  margin: 0;
+}
+
+.label-on { color: var(--accent); }
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle input { display: none; }
+
+.track {
+  background: #2a2a2a;
+  border-radius: 20px;
+  height: 40px;
+  position: relative;
+  width: 72px;
+  transition: background 0.2s;
+}
+
+.track::after {
+  background: #555;
+  border-radius: 18px;
+  content: "";
+  height: 32px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  width: 32px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggle input:checked + .track {
+  background: #1a3a1a;
+}
+
+.toggle input:checked + .track::after {
+  background: var(--accent);
+  transform: translateX(32px);
+}
+
+/* button */
+button {
+  background: var(--accent);
+  color: #050505;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 2;
+  padding: 4px 12px;
+  text-transform: lowercase;
+  width: 100%;
+  transition: opacity 0.15s;
+}
+
+button:hover { opacity: 0.85; }
+button:active { transform: scale(0.98); }
+
+/* remove old toggle styles */
+.fancy_toggle_container { display: none; }

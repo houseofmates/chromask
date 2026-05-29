@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "chromask",
+  "description": "make firefox wear a mask to look like chrome to sites that otherwise won't work.",
+  "author": "houseofmates",
+  "homepage_url": "https://github.com/houseofmates/chromask",
+  "version": "9.0.0",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chromask@house",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": ["storage", "tabs", "webRequest", "webRequestBlocking", "<all_urls>"],
+  "icons": {
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "64": "assets/icon-64.png",
+    "96": "assets/icon-96.png"
+  },
+  "browser_action": {
+    "default_icon": "assets/badge-indicator-off.svg",
+    "default_title": "mask is off",
+    "default_popup": "popup.html",
+    "default_area": "navbar"
+  },
+  "background": {
+    "scripts": ["shared.js", "background_script.js", "auto-update.js"]
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "commands": {
+    "toggle_mask": {
+      "description": "toggle the mask for the current site"
+    }
+  }
+}

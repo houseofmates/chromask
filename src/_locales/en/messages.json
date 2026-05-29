@@ -1,0 +1,81 @@
+{
+  "extensionName": {
+    "message": "chromask"
+  },
+  "extensionDescription": {
+    "message": "make firefox wear a mask to look like chrome to sites that otherwise won't work."
+  },
+  "breakageWarning": {
+    "message": "while chromask may help if you see a 'browser unsupported' message, it could cause unexpected breakage on some sites."
+  },
+  "reportBrokenSite": {
+    "message": "if you find a site which works better with chromask enabled, please report it $IN_PRODUCT_REPORTER$ or $WEBCOMPAT$. thank you!",
+    "placeholders": {
+      "IN_PRODUCT_REPORTER": { "content": "$1" },
+      "WEBCOMPAT": { "content": "$2" }
+    }
+  },
+  "inProductReporterLinkText": {
+    "message": "using the 'report broken site' feature"
+  },
+  "webcompatLinkText": {
+    "message": "on webcompat.com"
+  },
+  "maskStatusOn": {
+    "message": "the mask is on! i pretend to be chrome on this site."
+  },
+  "maskStatusOff": {
+    "message": "the mask is off. i look like firefox to this site."
+  },
+  "maskStatusUnsupported": {
+    "message": "the mask cannot work on this site."
+  },
+  "preferencesButton": {
+    "message": "preferences"
+  },
+  "preferencesFallback": {
+    "message": "to adjust preferences, please open the extension manager, select chromask, and hit settings."
+  },
+  "addSiteTitle": {
+    "message": "add site"
+  },
+  "addSiteButton": {
+    "message": "add site"
+  },
+  "addSiteHostnameExplanation": {
+    "message": "note: always enter the full domain name. if you enter example.com, chromask will not be active on www.example.com!"
+  },
+  "addSiteErrorInvalid": {
+    "message": "please enter a valid domain!"
+  },
+  "addSiteErrorAlreadyActive": {
+    "message": "chromask is already enabled for this domain!"
+  },
+  "maskedSitesTitle": {
+    "message": "currently masked sites"
+  },
+  "siteListRemoveButton": {
+    "message": "remove"
+  },
+  "siteListEmpty": {
+    "message": "you did not enable chromask on any site yet!"
+  },
+  "shortcutsTitle": {
+    "message": "keyboard shortcuts"
+  },
+  "shortcutsOpenPanelButton": {
+    "message": "open keyboard shortcut settings"
+  },
+  "shortcutsCommandCombo": {
+    "message": "keys"
+  },
+  "shortcutsCommandDescription": {
+    "message": "description"
+  },
+  "shortcutsCommandItemShortcutUndefined": {
+    "message": "undefined"
+  },
+  "shortcutsToggleMask": {
+    "message": "toggle the mask for the current site"
+  }
+}
