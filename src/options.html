@@ -1,37 +1,38 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="options.css" />
-  <script src="shared.js"></script>
-  <script src="options.js"></script>
-</head>
-<body>
-  <section>
-    <h2 id="add-site-title"></h2>
-    <form id="add-site-form">
-      <input id="add-site-input" type="text" placeholder="www.example.com" />
-      <input type="submit" id="add-site-button" />
-    </form>
-    <p id="add-site-hostname-explanation"></p>
-  </section>
-  <section>
-    <h2 id="masked-sites-title"></h2>
-    <div id="masked-sites"></div>
-  </section>
-  <section id="shortcuts-section" style="display: none">
-    <h2 id="shortcuts-title"></h2>
-    <table id="shortcuts-table">
-      <thead>
-        <tr>
-          <th id="shortcuts-command-combo"></th>
-          <th id="shortcuts-command-description"></th>
-        </tr>
-      </thead>
-      <tbody id="shortcuts-command-list"></tbody>
-    </table>
-    <button id="shortcuts-open-panel-button" style="display: none"></button>
-  </section>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="options.css" />
+    <script src="shared.js"></script>
+    <script src="options.js"></script>
+  </head>
+  <body>
+    <section>
+      <h2 id="add-site-title"></h2>
+      <form id="add-site-form">
+        <input id="add-site-input" type="text" placeholder="www.example.com" />
+        <input type="submit" id="add-site-button" />
+      </form>
+      <p id="add-site-hostname-explanation"></p>
+    </section>
+    <section>
+      <h2 id="masked-sites-title"></h2>
+      <input id="search-input" type="text" placeholder="search sites..." style="margin-bottom: 16px; width: 100%" />
+      <div id="masked-sites"></div>
+    </section>
+    <section id="shortcuts-section" style="display: none">
+      <h2 id="shortcuts-title"></h2>
+      <table id="shortcuts-table">
+        <thead>
+          <tr>
+            <th id="shortcuts-command-combo"></th>
+            <th id="shortcuts-command-description"></th>
+          </tr>
+        </thead>
+        <tbody id="shortcuts-command-list"></tbody>
+      </table>
+      <button id="shortcuts-open-panel-button" style="display: none"></button>
+    </section>
+  </body>
 </html>

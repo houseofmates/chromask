@@ -1,13 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-:root{--bg:#050505;--text:#ffffff;--accent:#f6b012;--info:#3c9fdd;--surface:#0a0a0a;--border:#1a1a1a;--muted:#888;--danger:#ff4d4d;--success:#4caf84;--shadow:0 6px 24px rgba(0,0,0,.45)}
-*{font-family:'Varela Round',sans-serif!important;margin:0;padding:0;box-sizing:border-box}
-html,body{background:var(--bg);color:var(--text);text-transform:lowercase;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-underline-offset:3px}
-button{background:var(--accent);color:#000;border:none;border-radius:4px;padding:8px 12px;cursor:pointer;font-weight:700;transition:opacity .12s ease}
-button:hover{opacity:.92}
-button:disabled{opacity:.45;cursor:not-allowed}
-input,textarea,select{background:#0c0c0c;color:var(--text);border:1px solid var(--border);border-radius:4px;padding:7px 9px;font-family:inherit;font-size:13px}
-input:focus,textarea:focus{outline:1px solid var(--accent)}
-::-webkit-scrollbar{width:10px;height:10px}
-::-webkit-scrollbar-thumb{background:#1c1c1c;border-radius:999px}
-::-webkit-scrollbar-track{background:transparent}
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+:root {
+  --bg-primary: #050505;
+  --bg-dark: #000000;
+  --accent-yellow: #f6b012;
+  --accent-blue: #3c9fdd;
+  --text-primary: #ffffff;
+  --text-accent: #f6b012;
+  --text-info: #3c9fdd;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Varela Round", sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  text-transform: lowercase;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-accent);
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+p,
+span,
+div,
+label,
+input,
+button {
+  text-transform: lowercase;
+}
+
+button,
+.button {
+  background: var(--accent-yellow);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+button:active {
+  transform: scale(0.98);
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  background: var(--bg-dark);
+  border: 1px solid #1a1a1a;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: var(--accent-yellow);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #1a1a1a;
+  margin: 16px 0;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c1c1c;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

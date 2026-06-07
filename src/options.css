@@ -1,121 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-
-:root {
-  --bg: #050505;
-  --text: #ffffff;
-  --accent: #f6b012;
-  --info: #3c9fdd;
-  --surface: #0a0a0a;
-  --border: #1a1a1a;
-}
-
-* { box-sizing: border-box; }
+@import url("../pkm_aesthetic.css");
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Varela Round', sans-serif;
-  margin: 0;
-  padding: 24px 32px;
   max-width: 600px;
-  text-transform: lowercase;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+section {
+  margin-bottom: 48px;
 }
 
 h2 {
-  color: var(--accent);
-  font-size: 16px;
-  font-weight: 600;
-  margin: 24px 0 12px;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
-h2:first-child { margin-top: 0; }
-
-p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text);
-  margin: 8px 0;
+#add-site-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-a { color: var(--info); }
-
-button, input[type="submit"] {
-  background: var(--accent);
-  color: #050505;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 2.2;
-  padding: 0 16px;
-  text-transform: lowercase;
-  transition: opacity 0.15s;
+#add-site-input {
+  flex: 1;
 }
 
-button:hover, input[type="submit"]:hover { opacity: 0.85; }
-button:active, input[type="submit"]:active { transform: scale(0.98); }
-
-input[type="text"] {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--text);
-  font-family: 'Varela Round', sans-serif;
-  font-size: 13px;
-  line-height: 2.2;
-  padding: 0 12px;
-  outline: none;
-  transition: border-color 0.15s;
-}
-
-input[type="text"]:focus {
-  border-color: var(--accent);
-}
-
-#add-site-form, .site-list-item {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr min-content;
-  margin-top: 8px;
+#add-site-hostname-explanation {
+  font-size: 12px;
+  color: var(--accent-blue);
 }
 
 .site-list-item {
+  display: flex;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .site-list-item p {
-  font-size: 13px;
-  margin: 0;
-  color: var(--text);
+  font-size: 14px;
 }
 
 .site-list-item button {
   background: transparent;
-  border: 1px solid var(--border);
-  color: var(--info);
+  color: var(--accent-blue);
+  border: 1px solid #1a1a1a;
+  padding: 4px 12px;
   font-size: 11px;
-  line-height: 1.8;
-  padding: 0 10px;
+}
+
+.site-list-item button:hover {
+  background: #1a1a1a;
 }
 
 #shortcuts-table {
-  margin-block-end: 12px;
   width: 100%;
-}
-
-#shortcuts-table th, #shortcuts-table td {
-  line-height: 2;
-  padding: 0 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  border-collapse: collapse;
 }
 
 #shortcuts-table th {
-  color: var(--info);
-  font-weight: 600;
+  text-align: left;
+  color: var(--accent-blue);
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+#shortcuts-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 14px;
+}
+
+#shortcuts-open-panel-button {
+  margin-top: 24px;
+  width: auto;
+  padding: 8px 16px;
 }
