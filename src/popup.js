@@ -18,6 +18,12 @@ async function updateUiState() {
   const labelOff = document.querySelector(".label-off");
   const labelOn = document.querySelector(".label-on");
 
+  // Add entry animations to body children
+  document.body.querySelectorAll("h2, .toggle-wrap, hr, section, p").forEach((el, i) => {
+    el.classList.add("animate-in");
+    el.style.animationDelay = `${i * 40}ms`;
+  });
+
   if (currentProtocol == "moz-extension:" || currentHostname == "") {
     maskStatus.innerText = "the mask cannot work on this site.";
     document.querySelector(".toggle-wrap").style.display = "none";
@@ -27,13 +33,13 @@ async function updateUiState() {
   if (enabledHostnames.contains(currentHostname)) {
     maskStatus.innerText = "the mask is on! i pretend to be chrome on this site.";
     checkbox.checked = true;
-    labelOn.style.color = "#f6b012";
-    labelOff.style.color = "#3c9fdd";
+    labelOn.style.color = "var(--accent-yellow)";
+    labelOff.style.color = "var(--accent-blue)";
   } else {
     maskStatus.innerText = "the mask is off. i look like firefox to this site.";
     checkbox.checked = false;
-    labelOff.style.color = "#f6b012";
-    labelOn.style.color = "#3c9fdd";
+    labelOff.style.color = "var(--accent-yellow)";
+    labelOn.style.color = "var(--accent-blue)";
   }
 
   const inProductReporterLink = document.createElement("a");
@@ -43,20 +49,27 @@ async function updateUiState() {
 
   inProductReporterLink.href = "https://support.mozilla.org/kb/report-breakage-due-blocking";
   inProductReporterLink.innerText = "using the 'report broken site' feature";
-  inProductReporterLink.style.color = "#3c9fdd";
+  inProductReporterLink.style.color = "var(--accent-blue)";
 
   webcompatLink.href = "https://webcompat.com/issues/new?url=" + encodeURIComponent(activeTab.url);
   webcompatLink.innerText = "on webcompat.com";
-  webcompatLink.style.color = "#3c9fdd";
+  webcompatLink.style.color = "var(--accent-blue)";
 
-  breakageWarning.innerText = "while chromask may help if you see a 'browser unsupported' message, it could cause unexpected breakage on some sites.";
-  reportBrokenSite.innerHTML = "if you find a site which works better with chromask enabled, please report it " +
-    inProductReporterLink.outerHTML + " or " + webcompatLink.outerHTML + ". thank you!";
+  breakageWarning.innerText =
+    "while chromask may help if you see a 'browser unsupported' message, it could cause unexpected breakage on some sites.";
+
+  // Safe way to set the content
+  reportBrokenSite.innerText = "if you find a site which works better with chromask enabled, please report it ";
+  reportBrokenSite.appendChild(inProductReporterLink);
+  reportBrokenSite.appendChild(document.createTextNode(" or "));
+  reportBrokenSite.appendChild(webcompatLink);
+  reportBrokenSite.appendChild(document.createTextNode(". thank you!"));
 
   const platformInfo = await browser.runtime.getPlatformInfo();
   if (platformInfo.os == "android") {
     document.getElementById("preferences").style.display = "none";
-    document.getElementById("preferencesFallbackText").innerText = "to adjust preferences, please open the extension manager, select chromask, and hit settings.";
+    document.getElementById("preferencesFallbackText").innerText =
+      "to adjust preferences, please open the extension manager, select chromask, and hit settings.";
     document.getElementById("preferencesFallback").style.display = "block";
   } else {
     const preferencesButton = document.getElementById("preferencesButton");

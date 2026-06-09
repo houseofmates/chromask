@@ -1,10 +1,10 @@
 # chromask
 
-a browser extension that hides your ip address from websites that try to block you based on your location or region.
+a browser extension that makes firefox wear a mask to look like chrome to sites that otherwise won't work.
 
 ## what is this?
 
-a browser extension that hides your ip address from websites that try to block you based on your location or region.
+a browser extension that makes firefox wear a mask to look like chrome to sites that otherwise won't work.
 
 this is a fork of [denschub/chrome-mask](https://github.com/denschub/chrome-mask) with a redesigned ui.
 

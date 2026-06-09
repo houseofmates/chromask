@@ -51,10 +51,6 @@ function onBeforeSendHeadersHandler(details) {
     }
   }
 
-  // Note to future me: This will break if Firefox ever starts sending CH headers
-  // on its own, because then we'd have all headers twice. In that case, it might
-  // be better just to convert the entire function to build a Set of headers, maybe,
-  // but I'll leave that rabbithole alone for now.
   details.requestHeaders.push(
     {
       name: "sec-ch-ua",
@@ -62,6 +58,8 @@ function onBeforeSendHeadersHandler(details) {
     },
     { name: "sec-ch-ua-mobile", value: chromeUAStringManager.getCHMobile() },
     { name: "sec-ch-ua-platform", value: chromeUAStringManager.getCHPlatform() },
+    { name: "sec-ch-ua-platform-version", value: chromeUAStringManager.getCHPlatformVersion() },
+    { name: "sec-ch-ua-full-version", value: `${chromeUAStringManager.getChromeVersion()}.0.0.0` },
   );
 
   return { requestHeaders: details.requestHeaders };
@@ -85,18 +83,30 @@ function setupOnBeforeSendHeaders() {
 
 function updateBadgeStatus(currentTab) {
   if (currentTab.id != browser.tabs.TAB_ID_NONE) {
-    const currentHostname = new URL(currentTab.url).hostname;
-    const urls = [...enabledHostnames.get_values()];
+    try {
+      const currentHostname = new URL(currentTab.url).hostname;
+      const urls = [...enabledHostnames.get_values()];
 
-    const isOn = urls.includes(currentHostname);
-    browser.browserAction.setIcon({
-      tabId: currentTab.id,
-      path: `assets/badge-indicator-${isOn ? "on" : "off"}.svg`,
-    });
-    browser.browserAction.setTitle({
-      tabId: currentTab.id,
-      title: isOn ? "the mask is on" : "the mask is off",
-    });
+      const isOn = urls.includes(currentHostname);
+      browser.browserAction.setIcon({
+        tabId: currentTab.id,
+        path: `assets/badge-indicator-${isOn ? "on" : "off"}.svg`,
+      });
+      browser.browserAction.setTitle({
+        tabId: currentTab.id,
+        title: isOn ? "the mask is on" : "the mask is off",
+      });
+    } catch (e) {
+      // Not a valid URL - reset badge to default state
+      browser.browserAction.setIcon({
+        tabId: currentTab.id,
+        path: "assets/badge-indicator-off.svg",
+      });
+      browser.browserAction.setTitle({
+        tabId: currentTab.id,
+        title: "the mask is off",
+      });
+    }
   }
 }
 
@@ -117,7 +127,7 @@ async function init() {
         await contentScriptSetup();
         break;
       default:
-        throw new Error("unexpected message received", msg);
+      // throw new Error("unexpected message received", msg);
     }
   });
 
