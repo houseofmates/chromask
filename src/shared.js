@@ -115,6 +115,16 @@ class ChromeUAStringManager {
     }[this.#currentPlatform];
   }
 
+  getCHPlatformVersion() {
+    if (this.#currentPlatform === "win") {
+      return "10.0.0";
+    } else if (this.#currentPlatform === "android") {
+      return "13.0.0";
+    } else {
+      return "";
+    }
+  }
+
   getUAString() {
     return this.#currentUAString;
   }

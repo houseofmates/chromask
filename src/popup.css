@@ -1,4 +1,4 @@
-@import url("../pkm_aesthetic.css");
+@import "../pkm_aesthetic.css";
 
 body {
   width: 320px;
@@ -41,7 +41,15 @@ h2 {
 }
 
 .toggle input {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .track {

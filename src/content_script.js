@@ -28,8 +28,12 @@ Object.defineProperty(window.navigator.wrappedJSObject, "pdfViewerEnabled", {
 
 window.wrappedJSObject.chrome = cloneInto(
   {
-    csi: exportFunction(function () {}, window),
-    loadTimes: exportFunction(function () {}, window),
+    csi: exportFunction(function () {
+      return {};
+    }, window),
+    loadTimes: exportFunction(function () {
+      return { wasFetchedViaSpdy: false };
+    }, window),
     runtime: {},
     webstore: {},
   },
@@ -43,6 +47,22 @@ const uaPlatform = {
   Mac: "macOS",
   Lin: "Android",
 }[navigator.userAgent.slice(13, 16)];
+
+// Compute platformVersion and architecture based on platform
+let platformVersion = "";
+let architecture = "";
+if (uaPlatform === "Windows") {
+  architecture = "x86";
+  platformVersion = "10.0.0";
+} else if (uaPlatform === "Android") {
+  architecture = "arm";
+  // Extract Android version from UA string if available
+  const androidMatch = navigator.userAgent.match(/Android (\d+)/);
+  platformVersion = androidMatch ? androidMatch[1] + ".0.0" : "13.0.0";
+} else {
+  architecture = "";
+  platformVersion = "";
+}
 
 navigator.wrappedJSObject.userAgentData = cloneInto(
   {
@@ -62,8 +82,8 @@ navigator.wrappedJSObject.userAgentData = cloneInto(
         ],
         mobile: uaPlatform == "Android",
         platform: uaPlatform,
-        platformVersion: "10.0.0",
-        architecture: "x86",
+        platformVersion: platformVersion,
+        architecture: architecture,
         model: "",
         uaFullVersion: `${uaVersion}.0.0.0`,
       });

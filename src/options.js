@@ -38,7 +38,7 @@ function setupAddForm() {
     const maybeHostname = tryValidateHostname(inputEl.value);
 
     // Clear old errors
-    const oldError = form.querySelector(".error-msg");
+    const oldError = form.parentElement.querySelector(".error-msg");
     if (oldError) oldError.remove();
 
     if (!maybeHostname) {

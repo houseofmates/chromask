@@ -14,7 +14,7 @@ this is a fork of the [denschub/chrome-mask](https://github.com/denschub/chrome-
 
 ### changes from original
 
-- redesigned the ui with a dark pkm aesthetic (varela round font, dark background, yellow accent). all text is now lowercase. extension renamed from chromask to chromask. auto-update checking added. non-english locales removed.
+- redesigned the ui with a dark pkm aesthetic (varela round font, dark background, yellow accent). all text is now lowercase. extension renamed from chrome-mask to chromask. auto-update checking added. non-english locales removed.
 
 ## credits
 
@@ -22,7 +22,7 @@ this project is a fork of [denschub/chrome-mask](https://github.com/denschub/chr
 
 ## license
 
-this project is licensed under the [mates license](license).
+this project is licensed under the [mates license](LICENSE).
 
 ## installation
 

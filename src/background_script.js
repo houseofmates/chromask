@@ -58,7 +58,7 @@ function onBeforeSendHeadersHandler(details) {
     },
     { name: "sec-ch-ua-mobile", value: chromeUAStringManager.getCHMobile() },
     { name: "sec-ch-ua-platform", value: chromeUAStringManager.getCHPlatform() },
-    { name: "sec-ch-ua-platform-version", value: "10.0.0" },
+    { name: "sec-ch-ua-platform-version", value: chromeUAStringManager.getCHPlatformVersion() },
     { name: "sec-ch-ua-full-version", value: `${chromeUAStringManager.getChromeVersion()}.0.0.0` },
   );
 
@@ -97,7 +97,15 @@ function updateBadgeStatus(currentTab) {
         title: isOn ? "the mask is on" : "the mask is off",
       });
     } catch (e) {
-      // Not a valid URL
+      // Not a valid URL - reset badge to default state
+      browser.browserAction.setIcon({
+        tabId: currentTab.id,
+        path: "assets/badge-indicator-off.svg",
+      });
+      browser.browserAction.setTitle({
+        tabId: currentTab.id,
+        title: "the mask is off",
+      });
     }
   }
 }

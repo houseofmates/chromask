@@ -1,7 +1,7 @@
 # 9.0.0
 
 - the settings page didn't allow you to manually add hosts if you are on firefox esr 115. it does now.
-- chromask now spoofs some basic client hints usage to address the now more commonly occuring sniffs for it. more precicisely, it sets the `sec-ch-ua`, `sec-ch-ua-mobile`, and `sec-ch-ua-platform` headers - and it shims the `navigator.useragentdata` object to include `.brands`, `.mobile`, and `.platform`. this should get users past currently known instances of ch sniffing, and this can be expanded in the future.
+- chromask now spoofs some basic client hints usage to address the now more commonly occuring sniffs for it. more precisely, it sets the `sec-ch-ua`, `sec-ch-ua-mobile`, and `sec-ch-ua-platform` headers - and it shims the `navigator.useragentdata` object to include `.brands`, `.mobile`, and `.platform`. this should get users past currently known instances of ch sniffing, and this can be expanded in the future.
 
 # 8.0.0
 
