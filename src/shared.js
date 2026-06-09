@@ -73,6 +73,10 @@ class ChromeUAStringManager {
   #currentChromeVersion = "148";
   #currentPlatform = "win";
   #currentUAString = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36`;
+  #platformVersions = {
+    win: "10.0.0",
+    android: "13.0.0",
+  };
 
   async init() {
     const platformInfo = await browser.runtime.getPlatformInfo();
@@ -85,6 +89,7 @@ class ChromeUAStringManager {
       this.#currentPlatform = "win";
     }
 
+    await this.loadPlatformVersions();
     await this.buildUAStringFromStorage();
 
     window.setInterval(
@@ -116,17 +121,18 @@ class ChromeUAStringManager {
   }
 
   getCHPlatformVersion() {
-    if (this.#currentPlatform === "win") {
-      return "10.0.0";
-    } else if (this.#currentPlatform === "android") {
-      return "13.0.0";
-    } else {
-      return "";
-    }
+    return this.#platformVersions[this.#currentPlatform] || "";
   }
 
   getUAString() {
     return this.#currentUAString;
+  }
+
+  async loadPlatformVersions() {
+    const storedPlatformVersions = (await browser.storage.local.get("platformVersions"))?.platformVersions;
+    if (storedPlatformVersions) {
+      this.#platformVersions = { ...this.#platformVersions, ...storedPlatformVersions };
+    }
   }
 
   async buildUAStringFromStorage() {
